@@ -78,8 +78,7 @@ function normaliseWord(row) {
 }
 
 function parseCSV(text) {
-  const lines = text.split(/?
-/).filter((line) => line.trim());
+  const lines = text.split(/\r?\n/).filter(line => line.trim());
   if (lines.length < 2) return [];
   const splitLine = (line) => line.split(",").map((cell) => cell.trim().replace(/^"|"$/g, ""));
   const headers = splitLine(lines[0]);
